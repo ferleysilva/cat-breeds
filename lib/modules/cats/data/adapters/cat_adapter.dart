@@ -14,15 +14,15 @@ class CatAdapter {
   static Cat fromApiModelToEntityModel(Map<String, dynamic> data) {
     return Cat(
       id: data['id'],
-      name: data['name'],
+      name: data['name'] ?? '',
       imageUrl: data['image'] != null
           ? data['image']['url']
           : 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
-      country: data['origin'],
-      description: data['description'],
-      wikipediaUrl: data['wikipedia_url'],
-      temperament: data['temperament'],
-      lifeSpan: data['life_span'],
+      country: data['origin'] ?? '',
+      description: data['description'] ?? '',
+      wikipediaUrl: data['wikipedia_url'] ?? '',
+      temperament: data['temperament'] ?? '',
+      lifeSpan: data['life_span'] ?? '',
       intelligence: data['intelligence'] ?? 0,
       adaptability: data['adaptability'] ?? 0,
       energyLevel: data['energy_level'] ?? 0,

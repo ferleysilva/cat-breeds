@@ -4,7 +4,7 @@ import 'package:catbreeds/modules/cats/domain/entities/filter_params_get_cats.da
 import 'package:catbreeds/modules/cats/domain/repositories/cat_repository.dart';
 import 'package:catbreeds/services/http_client_service.dart';
 
-class ImplementCatReposotory implements CatRepository {
+class ImplementCatRepository implements CatRepository {
   final HttpClientService httpClientService = HttpClientService();
 
   @override
@@ -17,12 +17,7 @@ class ImplementCatReposotory implements CatRepository {
       url += '/breeds?';
     }
 
-    if (filters.withImage) {
-      url += 'has_breeds=1';
-    } else {
-      url += 'has_breeds=0';
-    }
-
+    url += 'has_breeds=${filters.withImage ? 1 : 0}';
     url += '&page=${filters.page}&limit=${filters.limit}';
 
     final response = await httpClientService.getList(url);

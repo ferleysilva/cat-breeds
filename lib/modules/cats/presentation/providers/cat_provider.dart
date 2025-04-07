@@ -82,7 +82,7 @@ class CatListStateNotifier extends StateNotifier<CatListModel> {
 }
 
 final catListProvider = StateNotifierProvider<CatListStateNotifier, CatListModel>((ref) {
-  final ImplementCatReposotory catRepository = ImplementCatReposotory();
+  final ImplementCatRepository catRepository = ImplementCatRepository();
   final GetCatListUsecase getCatListUsecase = GetCatListUsecase(catRepository);
 
   return CatListStateNotifier(getCatListUsecase);
